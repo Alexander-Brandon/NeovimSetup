@@ -15,8 +15,13 @@ map({ "n", "t" }, "<A-h>", function() _G.toggle_current_term() end,
   { desc = "Toggle horizontal terminal" })
 
 -- In terminal mode: shift+tab cycles to next terminal
-map("t", "<S-Tab>", function() _G.cycle_next_term() end,
+map("t", "<S-L>", function() _G.cycle_next_term() end,
   { desc = "Cycle to next terminal instance" })
+
+-- In terminal mode: shift+tab cycles to next terminal
+map("t", "<S-H>", function() _G.cycle_previous_term() end,
+  { desc = "Cycle to previous terminal instance" })
+
 
 -- Numbered quick-access in normal AND terminal mode (auto-creates terminals if needed)
 for i = 1, 5 do

@@ -122,6 +122,50 @@ function _G.cycle_next_term()
   next_term:open()
 end
 
+-- Cycle to next terminal instance
+function _G.cycle_previous_term()
+  -- Detect which terminal we're actually in (immune to stale current_term_idx)
+  local cur_buf = vim.api.nvim_get_current_buf()
+  for idx, term in pairs(term_objects) do
+    if term.bufnr == cur_buf then
+      current_term_idx = idx
+      break
+    end
+  end
+
+  -- Close current terminal window (mirrors toggle_term approach)
+  local current_term = term_objects[current_term_idx]
+  if current_term and current_term.bufnr then
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      local ok, buf = pcall(vim.api.nvim_win_get_buf, win)
+      if ok and buf == current_term.bufnr then
+        vim.api.nvim_win_close(win, false)
+        break
+      end
+    end
+  end
+
+  -- Collect and sort all existing terminal indices
+  local indices = {}
+  for idx in pairs(term_objects) do
+    table.insert(indices, idx)
+  end
+  table.sort(indices)
+
+  -- Find current position, then advance (wrapping)
+  local pos = 1
+  for i, idx in ipairs(indices) do
+    if idx == current_term_idx then pos = i; break end
+  end
+  local previous_idx = indices[((pos - 2) % #indices) + 1]
+
+  current_term_idx = previous_idx
+
+  -- Open the next terminal
+  local next_term = term_objects[current_term_idx]
+  next_term:open()
+end
+
 -- Dynamic terminal creation
 function _G.create_terminal(idx)
   get_or_create_term(idx)
