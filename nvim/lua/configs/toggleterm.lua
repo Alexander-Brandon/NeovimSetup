@@ -3,7 +3,7 @@ local Terminal = require("toggleterm.terminal").Terminal
 
 toggleterm.setup({
   direction = "horizontal",
-  size = 15,
+  size = 18,
   open_mapping = nil, -- manage manually
   shade_terminals = true,
   persist_mode = true,
