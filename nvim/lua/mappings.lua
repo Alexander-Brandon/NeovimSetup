@@ -22,6 +22,10 @@ map("t", "<A-S-l>", function() _G.cycle_next_term() end,
 map("t", "<A-S-h>", function() _G.cycle_previous_term() end,
   { desc = "Cycle to previous terminal instance" })
 
+map("n", "<leader>td", "<cmd>Telescope diagnostics<cr>", { desc = "telescope diagnostics"})
+map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
+map("n", "]d", function() vim.diagnostic.goto_next() end, { desc = "Next diagnostic" })
+map("n", "[d", function() vim.diagnostic.goto_prev() end, { desc = "Previous diagnostic" })
 
 -- Numbered quick-access in normal AND terminal mode (auto-creates terminals if needed)
 for i = 1, 5 do
