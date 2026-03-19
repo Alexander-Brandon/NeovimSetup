@@ -78,9 +78,24 @@ map("n", "<leader>hl", function()
   harpoon:list():next()
 end, { desc = "Harpoon: next" })
 
+--- Git Commands are <leader>g*
+map("n", "<leader>gg", function()
+  local Terminal = require("toggleterm.terminal").Terminal
+  local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", float_opts = { border = "curved" }, hidden = true })
+  lazygit:toggle()
+end, { desc = "Open LazyGit" })
+
 --- Buffer Commands are <leader>b*
 
 --- Conform Commands are <leader>f*
 map({ "n", "x" }, "<leader>fm", function()
   require("conform").format({ lsp_fallback = true })
 end, { desc = "general format file" })
+
+--- Terminal Commands are <M-i> and <M-h>
+map("n", "<M-i>", function()
+  _G.popup_term:toggle()
+end, { desc = "Toggle popup terminal" })
+map("n", "<M-h>", function()
+  _G.horizontal_term:toggle()
+end, { desc = "Toggle horizontal terminal" })
