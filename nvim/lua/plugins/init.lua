@@ -80,7 +80,7 @@ return {
       integrations = {
         aerial = true,
         alpha = true,
-        cmp = true,
+        blink_cmp = true,
         dashboard = true,
         flash = true,
         fzf = true,
@@ -226,6 +226,31 @@ return {
         extensions = {},
       })
     end,
+  },
+  {
+    "saghen/blink.cmp",
+    lazy = false,
+    version = "*",
+    opts = {
+      keymap = {
+        preset = "none",
+        ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-e>"] = { "hide" },
+      },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = "mono",
+      },
+      sources = {
+        default = { "lsp", "path", "buffer" },
+      },
+      completion = {
+        documentation = { auto_show = true },
+      },
+    },
   },
   {
     "nvim-treesitter/nvim-treesitter",

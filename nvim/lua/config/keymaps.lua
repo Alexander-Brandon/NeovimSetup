@@ -69,7 +69,8 @@ end, { desc = "Harpoon: next" })
 --- Git Commands are <leader>g*
 map("n", "<leader>gg", function()
   local Terminal = require("toggleterm.terminal").Terminal
-  local lazygit = Terminal:new({ cmd = "lazygit", direction = "float", float_opts = { border = "curved" }, hidden = true })
+  local lazygit =
+    Terminal:new({ cmd = "lazygit", direction = "float", float_opts = { border = "curved" }, hidden = true })
   lazygit:toggle()
 end, { desc = "Open LazyGit" })
 
