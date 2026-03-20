@@ -84,9 +84,9 @@ map({ "n", "x" }, "<leader>fm", function()
 end, { desc = "general format file" })
 
 --- Terminal Commands are <M-i> and <M-h>
-map("n", "<M-i>", function()
+map({ "n", "t" }, "<M-i>", function()
   _G.popup_term:toggle()
 end, { desc = "Toggle popup terminal" })
-map("n", "<M-h>", function()
+map({ "n", "t" }, "<M-h>", function()
   _G.horizontal_term:toggle()
 end, { desc = "Toggle horizontal terminal" })
