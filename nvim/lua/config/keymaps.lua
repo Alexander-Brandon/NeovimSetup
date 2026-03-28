@@ -75,9 +75,14 @@ map("n", "<leader>gg", function()
   local Terminal = require("toggleterm.terminal").Terminal
   local lazygit = Terminal:new({
     cmd = "lazygit",
+    display_name = "LazyGit",
     direction = "float",
     float_opts = { border = "curved" },
     highlights = {
+      FloatBorder = {
+        guibg = "#000000",
+        guifg = "#39ff14",
+      },
       Normal = { guibg = "#000000" },
       NormalFloat = { guibg = "#000000" },
     },
