@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This is a **custom Neovim configuration** using [Lazy.nvim](https://github.com/folke/lazy.nvim) as the plugin manager. It is not based on NvChad or any other distribution — all configuration is hand-written.
+This is a **Neovim configuration** [Package Manager: Lazy.nvim] — all configuration is hand-written.
 
 ## Architecture
 
@@ -21,7 +21,7 @@ This is a **custom Neovim configuration** using [Lazy.nvim](https://github.com/f
 
 - `conform.nvim`: Code formatting (`<leader>fm`)
 - `which-key.nvim`: Keymap popup hints
-- `telescope.nvim`: Fuzzy finder (`<leader>tf`)
+- `fzf-lua`: Fuzzy finder (`<leader>l*`)
 - `harpoon` (harpoon2 branch): File navigation (`<leader>h*`)
 - `mason.nvim` + `mason-lspconfig.nvim` + `nvim-lspconfig`: LSP auto-install and setup
 - `gitsigns.nvim`: Git blame and change signs
@@ -37,7 +37,11 @@ This is a **custom Neovim configuration** using [Lazy.nvim](https://github.com/f
 - `<leader>he` — Harpoon quick menu
 - `<leader>h1`–`<leader>h4` — Jump to harpoon slots (which-key shows filename dynamically)
 - `<leader>hh` / `<leader>hl` — Harpoon prev/next
-- `<leader>tf` — Telescope find files
+- `<leader>lf` — fzf-lua find files
+- `<leader>lg` — fzf-lua live grep
+- `<leader>lr` — fzf-lua recent files
+- `<leader>ls` — fzf-lua search word under cursor
+- `<leader>lk` — fzf-lua keymaps
 - `<leader>fm` — Format file (conform)
 - `<leader>BB` — Toggle nvim-tree
 - `<leader>ef/el/eh` — Diagnostic float/next/prev
