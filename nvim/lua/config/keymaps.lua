@@ -83,7 +83,6 @@ map("n", "<leader>gg", function()
         guibg = "#000000",
         guifg = "#39ff14",
       },
-
       Normal = { guibg = "#000000" },
       NormalFloat = { guibg = "#000000" },
     },
