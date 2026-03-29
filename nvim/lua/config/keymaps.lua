@@ -77,15 +77,20 @@ map("n", "<leader>gg", function()
     cmd = "lazygit",
     display_name = "LazyGit",
     direction = "float",
-    float_opts = { border = "curved" },
+    float_opts = { border = "rounded" },
     highlights = {
       FloatBorder = {
         guibg = "#000000",
         guifg = "#39ff14",
       },
+
       Normal = { guibg = "#000000" },
       NormalFloat = { guibg = "#000000" },
     },
+    on_open = function(term)
+      vim.api.nvim_set_hl(0, "LazyGitTitle", { fg = "#39ff14", bg = "#000000" })
+      vim.wo[term.window].winhighlight = vim.wo[term.window].winhighlight .. ",FloatTitle:LazyGitTitle"
+    end,
     hidden = true,
   })
   lazygit:toggle()
